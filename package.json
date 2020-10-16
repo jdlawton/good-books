@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@work.github.com:arosenkranz/googlebooks-app.git"
+    "url": "git+https://github.com/jdlawton/good-books.git"
   },
   "keywords": [],
   "author": "Joe Lawton",
