@@ -15,7 +15,7 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  //set up useMutation
+  //set up useMutation for later use
   const [addUser, {error}] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
@@ -53,7 +53,7 @@ const SignupForm = () => {
       console.log(data);
     } catch (err) {
       console.error(err);
-      //setShowAlert(true);
+      setShowAlert(true);
     }
 
     setUserFormData({
