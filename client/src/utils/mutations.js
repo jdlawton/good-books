@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 
+//exporting mutations on the front end so they can be imported and used in the React pages/components.
 export const LOGIN_USER = gql`
    mutation login ($email: String!, $password: String!){
        login(email: $email, password: $password) {

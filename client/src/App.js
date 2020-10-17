@@ -8,7 +8,8 @@ import SavedBooks from './pages/SavedBooks';
 
 import Navbar from './components/Navbar';
 
-
+//Apollo client including getting token from local storage so it can be included
+//in future requests
 const client = new ApolloClient ({
   request: operation => {
     const token = localStorage.getItem('id_token');

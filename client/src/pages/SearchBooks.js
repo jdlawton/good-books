@@ -5,6 +5,8 @@ import Auth from '../utils/auth';
 //import { saveBook, searchGoogleBooks } from '../utils/API';
 import {searchGoogleBooks} from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+
+//imports for mutation that is used later in this file
 import {useMutation} from '@apollo/react-hooks';
 import { SAVE_BOOK } from '../utils/mutations';
 
@@ -79,6 +81,7 @@ const SearchBooks = () => {
       }
       */
 
+      //execute the mutation passing in all of the input variables (the book data) that is needs)
       await saveBook({
         variables: {authors: bookToSave.authors, description: bookToSave.description, title: bookToSave.title, bookId: bookToSave.bookId, image: bookToSave.image, link: bookToSave.link}
       });

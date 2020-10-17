@@ -6,6 +6,7 @@ import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
+//imports I added, realted to GraphQL queries and mutations
 import {useQuery} from '@apollo/react-hooks';
 import {GET_ME} from '../utils/queries';
 import {useMutation} from '@apollo/react-hooks';
@@ -14,8 +15,8 @@ import { REMOVE_BOOK } from '../utils/mutations';
 const SavedBooks = () => {
   //const [userData, setUserData] = useState({});
 
+  //get the user data and save it to userData once the data is there, while waiting on the data, save an empty object
   const {data} = useQuery(GET_ME);
-  //console.log(data, 'USER DATA');
   const userData = data?.me || {};
 
   //set up useMutation for later use
@@ -74,6 +75,8 @@ const SavedBooks = () => {
       //setUserData(updatedUser);
       */
 
+      //run the mutation that was prepared earlier, using using the bookId variable that was passed into
+      //the handleDeleteBook function above.
       await removeBook({
         variables: {bookId: bookId}
       });

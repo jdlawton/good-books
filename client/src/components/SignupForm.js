@@ -4,6 +4,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 //import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
 
+//imports for GraphQL mutation used in this file
 import {useMutation} from '@apollo/react-hooks';
 import {ADD_USER} from '../utils/mutations';
 
@@ -46,6 +47,7 @@ const SignupForm = () => {
       Auth.login(token);
       */
 
+      //execute the mutation that was set up above and pass in the userFormData as a variable
       const {data} = await addUser({
         variables: {...userFormData}
       });

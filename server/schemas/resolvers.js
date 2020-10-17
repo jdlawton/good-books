@@ -3,7 +3,7 @@ const {AuthenticationError} = require('apollo-server-express');
 const {signToken} = require('../utils/auth');
 
 const resolvers = {
-
+    //the me query finds and returns user data
     Query: {
         me: async (parent, args, context) => {
             if (context.user){
@@ -18,12 +18,14 @@ const resolvers = {
     },
     
     Mutation: {
+        //adds a user to the database when they sign up for an account
         addUser: async (parent,args) => {
             const user = await User.create(args);
             const token = signToken(user);
 
             return {token, user};
         },
+        //logs a user into the application
         login: async (parent, {email, password}) => {
             const user = await User.findOne({email});
 
@@ -54,6 +56,7 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
+        //remove a book from the user's savedBooks array
         removeBook: async (parent, args, context) => {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
